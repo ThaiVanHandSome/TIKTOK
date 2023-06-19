@@ -9,17 +9,12 @@ import { useEffect, useState } from 'react';
 
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import AccountItems from '~/components/AccountItems';
+import Button from '~/components/Button';
 
 const cx = classNames.bind(styles);
 
 function Header() {
-    const [searchResults, setSearchResults] = useState([]);
-
-    useEffect(() => {
-        setTimeout(() => {
-            setSearchResults([1, 2, 3]);
-        }, 0);
-    }, []);
+    //const [searchResults, setSearchResults] = useState([]);
 
     return (
         <header className={cx('wrapper')}>
@@ -28,14 +23,12 @@ function Header() {
                     <img src={images.logo.default} alt="Logo" />
                 </div>
                 <Tippy
-                    visible={searchResults.length > 0}
+                    visible={false}
                     interactive={true}
                     render={(attrs) => (
                         <div className={cx('search-results')} tabIndex="-1" {...attrs}>
                             <PopperWrapper>
-                                <h4 className={cx('search-title')}>
-                                    Accounts
-                                </h4>
+                                <h4 className={cx('search-title')}>Accounts</h4>
                                 <AccountItems />
                                 <AccountItems />
                                 <AccountItems />
@@ -57,7 +50,16 @@ function Header() {
                         </button>
                     </div>
                 </Tippy>
-                <div className={cx('action')}></div>
+                <div className={cx('action')}>
+                    <Button text>Upload</Button>
+                    <Button
+                        primary
+                        leftIcon={<FontAwesomeIcon icon={faMagnifyingGlass} />}
+                        rightIcon={<FontAwesomeIcon icon={faMagnifyingGlass} />}
+                    >
+                        Log in
+                    </Button>
+                </div>
             </div>
         </header>
     );

@@ -11,6 +11,7 @@
     justify-content: center;
 }
 
+
 .inner {
     height: 100%;
     width: var(--default-layout-width);
@@ -22,7 +23,8 @@
 .logo {
 }
 
-.search, .search-results {
+.search,
+.search-results {
     width: 361px;
 }
 .search {
@@ -76,7 +78,7 @@
 }
 
 .clear {
-    color: rgba(22, 24, 35, 0.34); 
+    color: rgba(22, 24, 35, 0.34);
 }
 
 .loading {
@@ -96,4 +98,8 @@
         color: var(--black);
         cursor: pointer;
     }
+}
+
+.custom-login {
+    color: rgba(22, 24, 35, 0.75);
 }
