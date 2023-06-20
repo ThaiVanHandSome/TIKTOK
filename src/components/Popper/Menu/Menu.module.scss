@@ -1,0 +1,19 @@
+.menu-list {
+    width: 224px;
+    
+    .menu-item {
+        width: 100%;
+        text-align: left;
+        border-radius: 0;
+        margin-left: 0 !important;
+        cursor: pointer;
+
+        &:hover {
+            background: rgba(22, 24, 35, 0.03);
+        }
+    }
+}
+
+.menu-popper {
+    padding-bottom: 8px;
+}
