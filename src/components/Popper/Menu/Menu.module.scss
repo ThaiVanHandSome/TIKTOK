@@ -11,6 +11,13 @@
         &:hover {
             background: rgba(22, 24, 35, 0.03);
         }
+
+        // Menu users
+        &.top-separate {
+            padding-top: 10px;
+            padding-bottom: 10px;
+            border-top: 1px solid rgba(22, 24, 35, 0.12);
+        }
     }
 }
 
