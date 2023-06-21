@@ -9,25 +9,22 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
     faCircleQuestion,
     faCircleXmark,
-    faCloudUpload,
     faEarthAsia,
     faEllipsisVertical,
     faGear,
     faKeyboard,
-    faMagnifyingGlass,
     faSpinner,
     faBookmark,
     faUser,
     faRightFromBracket,
 } from '@fortawesome/free-solid-svg-icons';
 
-import { faMessage } from '@fortawesome/free-regular-svg-icons';
-import { useEffect, useState } from 'react';
-
 import { Wrapper as PopperWrapper, Menu } from '~/components/Popper';
 import AccountItems from '~/components/AccountItems';
 import Button from '~/components/Button';
 import { faTiktok } from '@fortawesome/free-brands-svg-icons';
+import { InboxIcon, MessageIcon, SearchIcon } from '~/components/Icons';
+import Image from '~/components/Image';
 
 const cx = classNames.bind(styles);
 const MENU_ITEMS = [
@@ -150,7 +147,7 @@ function Header() {
                             <FontAwesomeIcon icon={faSpinner} />
                         </button>
                         <button className={cx('search-btn')}>
-                            <FontAwesomeIcon icon={faMagnifyingGlass} />
+                            <SearchIcon width="2.4rem" height="2.4rem" />
                         </button>
                     </div>
                 </HeadlessTippy>
@@ -159,12 +156,19 @@ function Header() {
                         <>
                             <Tippy delay={[0, 300]} content="Upload Video">
                                 <span className={cx('user-icon')}>
-                                    <FontAwesomeIcon icon={faCloudUpload} />
+                                    <Button outline rounded small>
+                                        Upload
+                                    </Button>
                                 </span>
                             </Tippy>
                             <Tippy delay={[0, 300]} content="Messages">
                                 <span className={cx('user-icon')}>
-                                    <FontAwesomeIcon icon={faMessage} />
+                                    <MessageIcon />
+                                </span>
+                            </Tippy>
+                            <Tippy delay={[0, 300]} content="Inbox">
+                                <span className={cx('user-icon')}>
+                                    <InboxIcon width="3.2rem" height="3.2rem" />
                                 </span>
                             </Tippy>
                         </>
@@ -176,9 +180,11 @@ function Header() {
                     )}
                     <Menu items={isLogIn ? MENU_ITEMS_USER : MENU_ITEMS} onChange={handleMenuChange}>
                         {isLogIn ? (
-                            <img
+                            <Image
                                 className={cx('user-avt')}
-                                src="https://scontent.fsgn2-6.fna.fbcdn.net/v/t39.30808-6/241464176_1242056446291086_5810272849317935739_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=RLmaFwL5SwkAX-e_Kfr&_nc_ht=scontent.fsgn2-6.fna&oh=00_AfAJ6taEZoRySToVdgFbwYUnM6tNuEfzfyBDDFxvNTk_Qg&oe=6494E34D"
+                                src="https://scontent.fsgn2-6.fna.fbcdn.net/v/t9.30808-6/241464176_1242056446291086_5810272849317935739_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=RLmaFwL5SwkAX-e_Kfr&_nc_ht=scontent.fsgn2-6.fna&oh=00_AfAJ6taEZoRySToVdgFbwYUnM6tNuEfzfyBDDFxvNTk_Qg&oe=6494E34D"
+                                alt="Avatar"
+                                //fallback="https://p16-sign-va.tiktokcdn.com/tos-maliva-avt-0068/7247048011573002246~c5_100x100.jpeg?x-expires=1687532400&x-signature=OYMskDBmJFn960KvyPUmpk1OM54%3D"
                             />
                         ) : (
                             <button className={cx('more-btn')}>
