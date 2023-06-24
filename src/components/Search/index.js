@@ -8,6 +8,8 @@ import styles from './Search.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleXmark, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { SearchIcon } from '~/components/Icons';
+import { useDebounce } from '../Hooks';
+import { search } from '~/ApiServices/searchService.js';
 
 const cx = classNames.bind(styles);
 
@@ -28,22 +30,21 @@ function Search() {
         setShowResults(false);
     };
 
+    const debounced = useDebounce(searchValue, 500);
+
     useEffect(() => {
-        if (!searchValue.trim()) {
+        if (!debounced.trim()) {
             setSearchResults([]);
             return;
         }
+        const fetchApi = async () => {
+            const res = await search(debounced);
+            setSearchResults(res);
+            setLoading(false);
+        };
         setLoading(true);
-        fetch(`https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(searchValue)}&type=less`)
-            .then((res) => res.json())
-            .then((res) => {
-                setSearchResults(res.data);
-                setLoading(false);
-            })
-            .catch(() => {
-                setLoading(false);
-            });
-    }, [searchValue]);
+        fetchApi();
+    }, [debounced]);
     return (
         <HeadlessTippy
             visible={showResults && searchResults.length > 0}
