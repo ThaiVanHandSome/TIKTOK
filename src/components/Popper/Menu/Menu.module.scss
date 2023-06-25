@@ -3,6 +3,8 @@
 
     .menu-item {
         width: 100%;
+        font-size: 1.6rem;
+        font-weight: 600;
         text-align: left;
         border-radius: 0;
         margin-left: 0 !important;
@@ -29,6 +31,7 @@
     position: relative;
     height: 50px;
     margin-top: -8px;
+    flex-shrink: 0;
 }
 
 .back-btn {
@@ -43,4 +46,8 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+.list-item {
+    overflow-y: overlay;
 }

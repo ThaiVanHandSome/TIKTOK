@@ -3,6 +3,7 @@ import classNames from 'classnames/bind';
 import images from '~/asset/images';
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
+import { Link } from 'react-router-dom';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -22,6 +23,8 @@ import { faTiktok } from '@fortawesome/free-brands-svg-icons';
 import { InboxIcon, MessageIcon } from '~/components/Icons';
 import Image from '~/components/Image';
 import Search from '~/components/Search';
+import routesConfig from '~/config/routes';
+import languages from '~/asset/Languages';
 
 const cx = classNames.bind(styles);
 const MENU_ITEMS = [
@@ -30,38 +33,7 @@ const MENU_ITEMS = [
         title: 'English',
         children: {
             title: 'Language',
-            data: [
-                {
-                    type: 'language',
-                    code: 'en',
-                    title: 'English',
-                },
-                {
-                    type: 'language',
-                    code: 'vi',
-                    title: 'Vietnamese',
-                    children: {
-                        title: 'Vietnamese',
-                        data: [
-                            {
-                                type: 'vietnamese',
-                                code: 'B',
-                                title: 'Bắc',
-                            },
-                            {
-                                type: 'vietnamese',
-                                code: 'T',
-                                title: 'Trung',
-                            },
-                            {
-                                type: 'vietnamese',
-                                code: 'N',
-                                title: 'Nam',
-                            },
-                        ],
-                    },
-                },
-            ],
+            data: languages,
         },
     },
     {
@@ -115,9 +87,9 @@ function Header() {
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
-                <div className={cx('logo')}>
+                <Link to={routesConfig.home} className={cx('logo')}>
                     <img src={images.logo.default} alt="Logo" />
-                </div>
+                </Link>
 
                 {<Search />}
 
