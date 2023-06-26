@@ -8,7 +8,7 @@ import styles from './Search.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleXmark, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { SearchIcon } from '~/components/Icons';
-import { useDebounce } from '../Hooks';
+import { useDebounce } from '../../../components/Hooks';
 import * as searchService from '~/services/searchService.js';
 
 const cx = classNames.bind(styles);
@@ -32,6 +32,7 @@ function Search() {
 
     const handleChange = (e) => {
         const searchVal = e.target.value;
+        console.log(searchVal);
         if (!searchVal.startsWith(' ')) {
             setSearchValue(searchVal);
         }
@@ -81,7 +82,7 @@ function Search() {
                         placeholder="Search accounts and videos"
                         spellCheck="false"
                         onChange={(e) => handleChange(e)}
-                        onFocus={() => setShowResults(true)}
+                        //onFocus={() => setShowResults(true)}
                     />
                     {!!searchValue && !loading && (
                         <button className={cx('clear')} onClick={handleClear}>

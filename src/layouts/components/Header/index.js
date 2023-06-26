@@ -22,7 +22,7 @@ import Button from '~/components/Button';
 import { faTiktok } from '@fortawesome/free-brands-svg-icons';
 import { InboxIcon, MessageIcon } from '~/components/Icons';
 import Image from '~/components/Image';
-import Search from '~/components/Search';
+import Search from '~/layouts/components/Search';
 import config from '~/config';
 import languages from '~/asset/Languages';
 
