@@ -23,7 +23,7 @@ import { faTiktok } from '@fortawesome/free-brands-svg-icons';
 import { InboxIcon, MessageIcon } from '~/components/Icons';
 import Image from '~/components/Image';
 import Search from '~/components/Search';
-import routesConfig from '~/config/routes';
+import config from '~/config';
 import languages from '~/asset/Languages';
 
 const cx = classNames.bind(styles);
@@ -87,7 +87,7 @@ function Header() {
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
-                <Link to={routesConfig.home} className={cx('logo')}>
+                <Link to={config.routes.home} className={cx('logo')}>
                     <img src={images.logo.default} alt="Logo" />
                 </Link>
 

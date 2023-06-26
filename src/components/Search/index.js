@@ -9,7 +9,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleXmark, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { SearchIcon } from '~/components/Icons';
 import { useDebounce } from '../Hooks';
-import { search } from '~/ApiServices/searchService.js';
+import * as searchService from '~/services/searchService.js';
 
 const cx = classNames.bind(styles);
 
@@ -49,7 +49,7 @@ function Search() {
             return;
         }
         const fetchApi = async () => {
-            const res = await search(debounced);
+            const res = await searchService.search(debounced);
             setSearchResults(res);
             setLoading(false);
         };
