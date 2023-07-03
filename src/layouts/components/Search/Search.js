@@ -42,21 +42,21 @@ function Search() {
         e.preventDefault();
     };
 
-    const debounced = useDebounce(searchValue, 500);
+    const debouncedValue = useDebounce(searchValue, 500);
 
     useEffect(() => {
-        if (!debounced.trim()) {
+        if (!debouncedValue.trim()) {
             setSearchResults([]);
             return;
         }
         const fetchApi = async () => {
-            const res = await searchService.search(debounced);
+            const res = await searchService.search(debouncedValue);
             setSearchResults(res);
             setLoading(false);
         };
         setLoading(true);
         fetchApi();
-    }, [debounced]);
+    }, [debouncedValue]);
     return (
         // Using a wrapper <div> or <span> tag around the reference element solves this by creating a new parentNode context.
         <div>
