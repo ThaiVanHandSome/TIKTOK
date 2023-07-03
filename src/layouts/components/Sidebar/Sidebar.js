@@ -7,7 +7,6 @@ import {
     ExploreIconRegular,
     LiveIconRegular,
     HomeIconSolid,
-    UserGroupIconSolid,
     ExploreIconSolid,
     LiveIconSolid,
 } from '~/components/Icons';
@@ -26,7 +25,7 @@ function Sidebar() {
                 />
                 <MenuItem
                     title="Following"
-                    icon={<HomeIconRegular />}
+                    icon={<ExploreIconRegular />}
                     iconActive={<ExploreIconSolid  />}
                     to={config.routes.following}
                 />
