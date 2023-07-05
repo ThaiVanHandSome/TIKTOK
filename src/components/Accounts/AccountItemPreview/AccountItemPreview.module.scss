@@ -1,0 +1,56 @@
+.preview {
+    width: var(--sidebar-width);
+    padding: 20px;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.avatar {
+    --size: 64px;
+    width: var(--size);
+    height: var(--size);
+    border-radius: 50%;
+}
+
+.button {
+    padding: 6px 16px;
+}
+
+.info {
+    margin-top: 12px;
+    color: #161823;
+}
+
+.user-name {
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.check {
+    margin-left: 4px;
+    color: rgb(32, 213, 236);
+    font-size: 1.4rem;
+}
+
+.name {
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.analytics {
+    font-size: 1.6rem;
+    margin-top: 8px;
+}
+
+.label + .value {
+    margin-left: 12px;
+}
+
+.label {
+    color: #161823bf;
+}

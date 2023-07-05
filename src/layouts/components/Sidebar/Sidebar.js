@@ -10,6 +10,7 @@ import {
     ExploreIconSolid,
     LiveIconSolid,
 } from '~/components/Icons';
+import Accounts from '~/components/Accounts';
 
 const cx = classNames.bind(styles);
 
@@ -26,7 +27,7 @@ function Sidebar() {
                 <MenuItem
                     title="Following"
                     icon={<ExploreIconRegular />}
-                    iconActive={<ExploreIconSolid  />}
+                    iconActive={<ExploreIconSolid />}
                     to={config.routes.following}
                 />
                 <MenuItem
@@ -42,6 +43,8 @@ function Sidebar() {
                     to={config.routes.live}
                 />
             </Menu>
+            <Accounts label="Suggested Accounts" />
+            <Accounts label="Following Accounts" />
         </aside>
     );
 }

@@ -83,7 +83,7 @@ function Header() {
         console.log(menuItem);
     };
 
-    const isLogIn = false;
+    const isLogIn = true;
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
